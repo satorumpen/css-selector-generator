@@ -162,7 +162,7 @@
       for (k = 0, len = whitelist.length; k < len; k++) {
         attr = whitelist[k];
         if (element.hasAttribute(attr)) {
-          result.push("[" + attr + "=" + (this.sanitizeAttribute(element.getAttribute(attr))) + "]");
+          result.push("[" + attr + "=\"" + (this.sanitizeAttribute(element.getAttribute(attr))) + "\"]");
         }
       }
       blacklist = this.options.attribute_blacklist.concat(['id', 'class']);
@@ -170,7 +170,7 @@
       for (l = 0, len1 = ref.length; l < len1; l++) {
         a = ref[l];
         if (!((ref1 = a.nodeName, indexOf.call(blacklist, ref1) >= 0) || (ref2 = a.nodeName, indexOf.call(whitelist, ref2) >= 0))) {
-          result.push("[" + a.nodeName + "=" + (this.sanitizeAttribute(a.nodeValue)) + "]");
+          result.push("[" + a.nodeName + "=\"" + (this.sanitizeAttribute(a.nodeValue)) + "\"]");
         }
       }
       return result;

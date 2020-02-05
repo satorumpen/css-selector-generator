@@ -139,11 +139,11 @@ class CssSelectorGenerator
     whitelist = @options.attribute_whitelist
     for attr in whitelist
       if element.hasAttribute attr
-        result.push "[#{attr}=#{@sanitizeAttribute element.getAttribute(attr)}]"
+        result.push "[#{attr}=\"#{@sanitizeAttribute element.getAttribute(attr)}\"]"
     blacklist = @options.attribute_blacklist.concat(['id', 'class'])
     for a in element.attributes
       unless a.nodeName in blacklist or a.nodeName in whitelist
-        result.push "[#{a.nodeName}=#{@sanitizeAttribute a.nodeValue}]"
+        result.push "[#{a.nodeName}=\"#{@sanitizeAttribute a.nodeValue}\"]"
     result
 
   getNthChildSelector: (element) ->
